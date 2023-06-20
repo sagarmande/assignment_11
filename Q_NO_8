@@ -1,0 +1,16 @@
+from collections import defaultdict
+
+def intersect(nums1, nums2):
+    frequency = defaultdict(int)
+    intersection = []
+
+    for num in nums1:
+        frequency[num] += 1
+
+    for num in nums2:
+        if frequency[num] > 0:
+            intersection.append(num)
+            frequency[num] -= 1
+
+    return intersection
+print(intersect([1, 2, 2, 1], [2, 2]))  # Output: [2, 2]
