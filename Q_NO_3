@@ -1,0 +1,9 @@
+def missingNumber(nums):
+    n = len(nums)
+    sum_range = n * (n + 1) // 2
+
+    for num in nums:
+        sum_range -= num
+
+    return sum_range
+print(missingNumber([3, 0, 1]))  # Output: 2
