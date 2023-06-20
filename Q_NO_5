@@ -1,0 +1,11 @@
+def intersection(nums1, nums2):
+    set1 = set(nums1)
+    set2 = set(nums2)
+    intersection = set()
+
+    for num in set1:
+        if num in set2:
+            intersection.add(num)
+
+    return list(intersection)
+print(intersection([1, 2, 2, 1], [2, 2]))  # Output: [2]
