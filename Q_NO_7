@@ -1,0 +1,39 @@
+def searchRange(nums, target):
+    left = 0
+    right = len(nums) - 1
+    start = -1
+    end = -1
+
+    # Search for the starting position
+    while left <= right:
+        mid = (left + right) // 2
+
+        if nums[mid] == target:
+            start = mid
+            right = mid - 1
+        elif nums[mid] > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    # If the target is not found, return [-1, -1]
+    if start == -1:
+        return [-1, -1]
+
+    # Reset left and right
+    left = 0
+    right = len(nums) - 1
+
+    # Search for the ending position
+    while left <= right:
+        mid = (left + right) // 2
+
+        if nums[mid] == target:
+            end = mid
+            left = mid + 1
+        elif nums[mid] > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return [start, end]
